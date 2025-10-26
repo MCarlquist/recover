@@ -51,14 +51,14 @@
   - Maintain version compatibility with existing setup
   - _Requirements: 3.1, 3.2, 3.5_
 
-- [ ] 5. Integrate with existing Minima theme
-- [ ] 5.1 Preserve Minima theme compatibility
+- [x] 5. Integrate with existing Minima theme
+- [x] 5.1 Preserve Minima theme compatibility
   - Import existing Minima SCSS variables and mixins
   - Ensure Tailwind utilities don't conflict with theme styles
   - Create override system for customizing theme with Tailwind
   - _Requirements: 1.3, 3.3, 3.4_
 
-- [ ] 5.2 Update layout files to support both SCSS and Tailwind
+- [x] 5.2 Update layout files to support both SCSS and Tailwind
   - Modify `_layouts/default.html` to include the new CSS pipeline
   - Update other layout files as needed for proper CSS loading
   - Ensure CSS loads correctly in both development and production

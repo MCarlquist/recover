@@ -1,6 +1,73 @@
-// Custom Components
-// This file contains custom component styles that work alongside Tailwind utilities
+// Custom Components with Minima Theme Compatibility
+// This file contains custom component styles that work alongside both Minima theme and Tailwind utilities
 // Components use standard CSS that's compatible with both CDN and local Tailwind builds
+
+// Minima Theme Compatibility Overrides
+// These ensure Tailwind utilities work well with Minima's existing styles
+
+// Preserve Minima's wrapper class but allow Tailwind utilities to enhance it
+.wrapper {
+  // Minima's wrapper styles are preserved
+  // Tailwind utilities can be added via classes like: wrapper + Tailwind classes
+  
+  // Allow Tailwind spacing utilities to override when explicitly used
+  &.tw-override {
+    max-width: none; // Allow Tailwind container classes to take precedence
+    padding-right: 0; // Allow Tailwind padding classes to take precedence
+    padding-left: 0;
+  }
+}
+
+// Preserve Minima's page-content structure while allowing Tailwind enhancements
+.page-content {
+  // Minima's styles are preserved
+  // Allow Tailwind utilities to enhance when needed
+  
+  &.tw-enhanced {
+    // When using Tailwind enhancements, allow full control
+    padding: 0;
+  }
+}
+
+// Ensure Minima's post and page layouts work with Tailwind
+.post-content,
+.page-content {
+  // Preserve Minima's typography while allowing Tailwind text utilities
+  h1, h2, h3, h4, h5, h6 {
+    // Minima styles preserved, but allow Tailwind text utilities to override
+    &.tw-heading {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: inherit;
+    }
+  }
+  
+  p {
+    &.tw-paragraph {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Minima Navigation Compatibility
+.site-nav {
+  // Preserve Minima's navigation styles
+  // Allow Tailwind utilities to enhance when needed
+  
+  .page-link {
+    &.tw-nav-link {
+      color: inherit;
+      line-height: inherit;
+      
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+}
 
 // Button Components
 .btn {
@@ -191,5 +258,201 @@
     margin-top: 0.25rem;
     font-size: 0.875rem;
     color: #6b7280;
+  }
+}
+// Custom Button Components (designed to work alongside Minima)
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  
+  // Use Minima's brand color for primary buttons
+  &--primary {
+    background-color: $brand-color;
+    color: white;
+    
+    &:hover {
+      background-color: darken($brand-color, 10%);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px $brand-color, 0 0 0 4px rgba(red($brand-color), green($brand-color), blue($brand-color), 0.1);
+    }
+  }
+  
+  &--secondary {
+    background-color: $grey-color-light;
+    color: $text-color;
+    
+    &:hover {
+      background-color: darken($grey-color-light, 10%);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px $grey-color, 0 0 0 4px rgba(red($grey-color), green($grey-color), blue($grey-color), 0.1);
+    }
+  }
+  
+  &--outline {
+    background-color: $background-color;
+    color: $text-color;
+    border-color: $grey-color-light;
+    
+    &:hover {
+      background-color: darken($background-color, 5%);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px $brand-color, 0 0 0 4px rgba(red($brand-color), green($brand-color), blue($brand-color), 0.1);
+    }
+  }
+  
+  &--small {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  &--large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+// Card Components (using Minima color scheme)
+.card {
+  background-color: $background-color;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  border: 1px solid $grey-color-light;
+  
+  &__header {
+    padding: 1.5rem;
+    border-bottom: 1px solid $grey-color-light;
+  }
+  
+  &__body {
+    padding: 1.5rem;
+  }
+  
+  &__footer {
+    padding: 1.5rem;
+    background-color: lighten($grey-color-light, 20%);
+    border-top: 1px solid $grey-color-light;
+  }
+}
+
+// Alert Components (using Minima compatible colors)
+.alert {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border-left: 4px solid;
+  
+  &--info {
+    background-color: lighten($brand-color, 45%);
+    border-color: $brand-color;
+    color: darken($brand-color, 20%);
+  }
+  
+  &--success {
+    background-color: #f0fdf4;
+    border-color: #4ade80;
+    color: #166534;
+  }
+  
+  &--warning {
+    background-color: #fffbeb;
+    border-color: #fbbf24;
+    color: #92400e;
+  }
+  
+  &--error {
+    background-color: #fef2f2;
+    border-color: #f87171;
+    color: #dc2626;
+  }
+}
+
+// Navigation Components (compatible with Minima's site-nav)
+.nav {
+  &__item {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: $text-color;
+    
+    &:hover {
+      background-color: $grey-color-light;
+      color: $text-color;
+    }
+    
+    &--active {
+      background-color: lighten($brand-color, 40%);
+      color: darken($brand-color, 10%);
+    }
+  }
+}
+
+// Form Components (using Minima color scheme)
+.form {
+  &__group {
+    margin-bottom: 1rem;
+  }
+  
+  &__label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-color;
+    margin-bottom: 0.25rem;
+  }
+  
+  &__input,
+  &__textarea,
+  &__select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid $grey-color-light;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    background-color: $background-color;
+    color: $text-color;
+    
+    &:focus {
+      outline: none;
+      border-color: $brand-color;
+      box-shadow: 0 0 0 1px $brand-color;
+    }
+  }
+  
+  &__textarea {
+    resize: vertical;
+  }
+  
+  &__error {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #dc2626;
+  }
+  
+  &__help {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: $grey-color;
   }
 }

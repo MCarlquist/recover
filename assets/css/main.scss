@@ -1,20 +1,24 @@
 ---
 ---
 
-// Import custom variables first
+// Import custom variables first (includes Minima variable overrides)
 @import "../scss/variables";
+
+// Import Minima theme with our custom variables
+// This must come before Tailwind to establish base styles
+@import "minima";
+
+// Import Minima overrides and Tailwind integration layer
+@import "../scss/minima-overrides";
 
 // Import Tailwind CSS (generated from CLI build)
 // This provides the full Tailwind utilities when using local development
 @import "tailwind";
 
-// Import Minima theme (maintain compatibility)
-@import "minima";
-
 // Import Tailwind CDN-compatible styles (fallback for CDN mode)
 @import "../scss/tailwind";
 
-// Import custom components
+// Import custom components (these can use both Minima and Tailwind features)
 @import "../scss/components";
 
 // Import custom utilities (should come after components)

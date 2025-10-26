@@ -1,0 +1,261 @@
+// Minima Theme Overrides and Tailwind Integration
+// This file provides a bridge between Minima theme and Tailwind CSS
+// It ensures compatibility and provides override mechanisms
+
+// Minima Class Preservation with Tailwind Enhancement Options
+// These classes allow you to use Tailwind utilities while preserving Minima functionality
+
+// Site Header Enhancements
+.site-header {
+  // Preserve Minima's header styles by default
+  // Add .tw-enhanced class to use Tailwind utilities
+  &.tw-enhanced {
+    border-top: none;
+    border-bottom: none;
+    min-height: auto;
+    position: relative;
+    
+    // Allow Tailwind positioning classes
+    &.tw-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    
+    &.tw-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+  }
+}
+
+// Site Title Enhancements
+.site-title {
+  &.tw-enhanced {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    margin-bottom: 0;
+    float: none;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Site Navigation Enhancements
+.site-nav {
+  &.tw-enhanced {
+    float: none;
+    line-height: inherit;
+    
+    .menu-icon {
+      display: none; // Hide default menu icon when using Tailwind
+    }
+    
+    .page-link {
+      color: inherit;
+      line-height: inherit;
+      margin-left: 0;
+      
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+    
+    .trigger {
+      clear: none;
+      display: flex;
+      
+      @include media-query($on-palm) {
+        display: flex; // Keep flex on mobile when enhanced
+        background-color: transparent;
+        border: none;
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+// Post and Page Content Enhancements
+.post-content,
+.page-content {
+  &.tw-enhanced {
+    // Reset Minima's content styles to allow full Tailwind control
+    h1, h2, h3, h4, h5, h6 {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    
+    p {
+      margin-bottom: 0;
+    }
+    
+    ul, ol {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+    
+    blockquote {
+      color: inherit;
+      border-left: none;
+      padding-left: 0;
+      font-size: inherit;
+      letter-spacing: inherit;
+      font-style: inherit;
+      margin: 0;
+      
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    pre, code {
+      font-size: inherit;
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+    }
+    
+    pre {
+      padding: 0;
+      overflow-x: visible;
+      
+      > code {
+        border: none;
+      }
+    }
+  }
+}
+
+// Footer Enhancements
+.site-footer {
+  &.tw-enhanced {
+    border-top: none;
+    padding: 0;
+  }
+}
+
+// Wrapper Enhancements
+.wrapper {
+  &.tw-enhanced {
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+    
+    @include media-query($on-laptop) {
+      max-width: none;
+      padding-right: 0;
+      padding-left: 0;
+    }
+    
+    @include media-query($on-palm) {
+      max-width: none;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+// Post List Enhancements
+.post-list {
+  &.tw-enhanced {
+    margin-left: 0;
+    list-style: none;
+    
+    > li {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.post-meta {
+  &.tw-enhanced {
+    font-size: inherit;
+    color: inherit;
+  }
+}
+
+.post-link {
+  &.tw-enhanced {
+    display: inline;
+    font-size: inherit;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Utility Classes for Gradual Migration
+// These classes help migrate from Minima to Tailwind gradually
+
+// Reset Minima margins for Tailwind spacing control
+.tw-reset-margins {
+  h1, h2, h3, h4, h5, h6,
+  p, blockquote, pre,
+  ul, ol, dl, figure {
+    margin: 0;
+  }
+}
+
+// Reset Minima typography for Tailwind font control
+.tw-reset-typography {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+// Reset Minima layout for Tailwind layout control
+.tw-reset-layout {
+  display: block;
+  position: static;
+  float: none;
+  clear: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+// Preserve Minima responsive behavior with Tailwind
+.tw-minima-responsive {
+  @include media-query($on-palm) {
+    // Apply Tailwind classes only on Minima's palm breakpoint
+    // Usage: <div class="tw-minima-responsive sm:hidden md:block">
+  }
+  
+  @include media-query($on-laptop) {
+    // Apply Tailwind classes only on Minima's laptop breakpoint
+  }
+}
+
+// Minima Color Utilities (expose Minima colors as utility classes)
+.bg-minima-brand { background-color: $brand-color; }
+.bg-minima-background { background-color: $background-color; }
+.bg-minima-grey { background-color: $grey-color; }
+.bg-minima-grey-light { background-color: $grey-color-light; }
+.bg-minima-grey-dark { background-color: $grey-color-dark; }
+
+.text-minima-brand { color: $brand-color; }
+.text-minima-text { color: $text-color; }
+.text-minima-grey { color: $grey-color; }
+.text-minima-grey-light { color: $grey-color-light; }
+.text-minima-grey-dark { color: $grey-color-dark; }
+
+.border-minima-brand { border-color: $brand-color; }
+.border-minima-grey { border-color: $grey-color; }
+.border-minima-grey-light { border-color: $grey-color-light; }
+.border-minima-grey-dark { border-color: $grey-color-dark; }
