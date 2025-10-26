@@ -1,0 +1,21 @@
+---
+---
+
+// Import custom variables first
+@import "../scss/variables";
+
+// Import Tailwind CSS (generated from CLI build)
+// This provides the full Tailwind utilities when using local development
+@import "tailwind";
+
+// Import Minima theme (maintain compatibility)
+@import "minima";
+
+// Import Tailwind CDN-compatible styles (fallback for CDN mode)
+@import "../scss/tailwind";
+
+// Import custom components
+@import "../scss/components";
+
+// Import custom utilities (should come after components)
+@import "../scss/utilities";

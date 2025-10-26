@@ -1,0 +1,29 @@
+{
+  "name": "jekyll-tailwind-site",
+  "version": "1.0.0",
+  "description": "Jekyll site with Tailwind CSS integration",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/scss/_tailwind-input.scss -o ./assets/css/tailwind.css --watch",
+    "build:css-prod": "NODE_ENV=production tailwindcss -i ./assets/scss/_tailwind-input.scss -o ./assets/css/tailwind.css --minify",
+    "build:css-dev": "tailwindcss -i ./assets/scss/_tailwind-input.scss -o ./assets/css/tailwind.css",
+    "dev": "concurrently \"npm run build:css\" \"bundle exec jekyll serve\"",
+    "build": "npm run build:css-prod && bundle exec jekyll build",
+    "clean": "rm -rf _site .jekyll-cache assets/css/tailwind.css"
+  },
+  "keywords": [
+    "jekyll",
+    "tailwindcss",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "concurrently": "^8.2.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "cssnano": "^6.0.1"
+  }
+}
