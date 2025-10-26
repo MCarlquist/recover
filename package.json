@@ -7,9 +7,20 @@
     "build:css": "tailwindcss -i ./assets/scss/_tailwind-input.scss -o ./assets/css/tailwind.css --watch",
     "build:css-prod": "NODE_ENV=production tailwindcss -i ./assets/scss/_tailwind-input.scss -o ./assets/css/tailwind.css --minify",
     "build:css-dev": "tailwindcss -i ./assets/scss/_tailwind-input.scss -o ./assets/css/tailwind.css",
-    "dev": "concurrently \"npm run build:css\" \"bundle exec jekyll serve\"",
+    "watch:css": "tailwindcss -i ./assets/scss/_tailwind-input.scss -o ./assets/css/tailwind.css --watch",
+    "watch:jekyll": "bundle exec jekyll serve --livereload --incremental",
+    "dev": "concurrently --kill-others \"npm run watch:css\" \"npm run watch:jekyll\" --names \"CSS,Jekyll\" --prefix-colors \"blue,green\"",
+    "dev:fast": "concurrently --kill-others \"npm run build:css-dev\" \"bundle exec jekyll serve --livereload\" --names \"CSS,Jekyll\" --prefix-colors \"blue,green\"",
+    "serve": "bundle exec jekyll serve",
+    "serve:livereload": "bundle exec jekyll serve --livereload",
     "build": "npm run build:css-prod && bundle exec jekyll build",
-    "clean": "rm -rf _site .jekyll-cache assets/css/tailwind.css"
+    "build:dev": "npm run build:css-dev && bundle exec jekyll build",
+    "clean": "rm -rf _site .jekyll-cache assets/css/tailwind.css",
+    "clean:all": "npm run clean && rm -rf node_modules",
+    "install:all": "npm install && bundle install",
+    "lint:css": "tailwindcss -i ./assets/scss/_tailwind-input.scss -o /dev/null --content './_layouts/**/*.html' './_includes/**/*.html' './_posts/**/*.{html,markdown,md}' './index.{html,markdown,md}' './about.{html,markdown,md}' './*.{html,markdown,md}'",
+    "check:tailwind": "tailwindcss --help > /dev/null && echo 'Tailwind CLI is available' || echo 'Tailwind CLI not found - run npm install'",
+    "check:jekyll": "bundle exec jekyll --version && echo 'Jekyll is available' || echo 'Jekyll not found - run bundle install'"
   },
   "keywords": [
     "jekyll",

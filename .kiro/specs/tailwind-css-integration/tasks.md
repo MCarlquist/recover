@@ -64,14 +64,14 @@
   - Ensure CSS loads correctly in both development and production
   - _Requirements: 1.4, 3.4, 4.2_
 
-- [ ] 6. Create development workflow and documentation
-- [ ] 6.1 Set up local development scripts
+- [x] 6. Create development workflow and documentation
+- [x] 6.1 Set up local development scripts
   - Create npm scripts for building and watching CSS changes
   - Set up development workflow that works with Jekyll serve
   - Configure hot reloading for CSS changes during development
   - _Requirements: 1.2, 2.5, 3.1_
 
-- [ ] 6.2 Create documentation for using the new CSS system
+- [x] 6.2 Create documentation for using the new CSS system
   - Write documentation explaining how to use Tailwind utilities
   - Document SCSS architecture and how to add custom styles
   - Create examples showing how to combine Tailwind and SCSS
