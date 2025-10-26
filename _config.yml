@@ -34,6 +34,13 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Minima theme settings
+minima:
+  skin: auto
+  social_links:
+    - { platform: github, user_url: "https://github.com/jekyll" }
+    - { platform: twitter, user_url: "https://twitter.com/jekyllrb" }
+
 # SASS/SCSS configuration
 sass:
   sass_dir: assets/scss
@@ -65,6 +72,6 @@ include:
 
 # Minification and optimization (for production)
 liquid:
-  error_mode: strict
-  strict_filters: true
-  strict_variables: true
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false

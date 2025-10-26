@@ -7,34 +7,10 @@ module.exports = {
     './_pages/**/*.{html,markdown,md}',
     './index.{html,markdown,md}',
     './about.{html,markdown,md}',
-    './**/*.{html,markdown,md}',
+    './*.{html,markdown,md}',
     '!./_site/**/*',
     '!./node_modules/**/*'
   ],
-  // Enable purging in production
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      './_layouts/**/*.html',
-      './_includes/**/*.html',
-      './_posts/**/*.{html,markdown,md}',
-      './_pages/**/*.{html,markdown,md}',
-      './index.{html,markdown,md}',
-      './about.{html,markdown,md}',
-      './**/*.{html,markdown,md}',
-    ],
-    options: {
-      safelist: [
-        'prose',
-        'prose-gray',
-        'max-w-none',
-        /^prose-/,
-        /^text-/,
-        /^bg-/,
-        /^border-/,
-      ]
-    }
-  },
   theme: {
     extend: {
       // Extend Tailwind's default theme
