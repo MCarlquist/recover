@@ -44,8 +44,11 @@ minima:
 # SASS/SCSS configuration
 sass:
   sass_dir: assets/scss
-  style: compressed
-  sourcemap: never
+  style: expanded # Use expanded for development, compressed for production
+  sourcemap: development # Enable source maps for development
+  load_paths:
+    - assets/scss
+    - node_modules
 
 # Exclude from processing
 exclude:
@@ -65,13 +68,40 @@ exclude:
   - tailwind.config.js
   - "*.log"
   - README.md
+  - .github/
+  - .vscode/
+  - .git/
+  - .gitignore
+  - assets/scss/_*.scss # Exclude SCSS partials from direct processing
 
 # Include assets that should be processed
 include:
   - assets/css/tailwind.css
+  - assets/css/main.scss
+
+# Asset processing configuration
+defaults:
+  - scope:
+      path: "assets/css"
+    values:
+      sitemap: false
 
 # Minification and optimization (for production)
 liquid:
   error_mode: warn
   strict_filters: false
   strict_variables: false
+
+# Development vs Production environment settings
+# These can be overridden with JEKYLL_ENV environment variable
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Performance optimizations
+incremental: true
+profile: false
+
+# CSS processing environment
+environment: development # Override with JEKYLL_ENV=production for builds
