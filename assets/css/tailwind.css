@@ -1,6 +1,6 @@
-/* Tailwind CSS Input File for Local Development */
+/* Tailwind CSS directives for SCSS integration */
 
-/* This file is processed by Tailwind CLI to generate the full CSS */
+/* When imported into SCSS, these provide Tailwind utilities */
 
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
@@ -1365,12 +1365,21 @@ body {
   line-height: 1.75rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .font-bold {
   font-weight: 700;
 }
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-extrabold {
+  font-weight: 800;
 }
 
 .leading-relaxed {

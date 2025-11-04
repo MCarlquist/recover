@@ -20,13 +20,12 @@
 
 title: MCarlquist | Real Developer Struggles
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A personal blog by Max, a developer sharing coding insights, technical tutorials, and my journey of recovery from alcohol and drug addiction. Real stories, practical development tips, and hope for others on similar paths.
+
 baseurl: "/recover" # the subpath of your site, e.g. /blog
 url: "https://MCarlquist.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
-github_username:  jekyll
+github_username: MCarlquist
 
 # Build settings
 theme: minima
@@ -38,7 +37,7 @@ plugins:
 minima:
   skin: auto
   social_links:
-    - { platform: github, user_url: "https://github.com/jekyll" }
+    - { platform: github, user_url: "https://github.com/MCarlquist" }
     - { platform: twitter, user_url: "https://twitter.com/jekyllrb" }
 
 # SASS/SCSS configuration

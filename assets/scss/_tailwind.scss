@@ -8,6 +8,14 @@ html {
   scroll-behavior: smooth;
 }
 
+// Test hot reload functionality
+.test-hot-reload {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
 body {
   // Using standard CSS instead of @apply since we're using CDN
   -webkit-font-smoothing: antialiased;
